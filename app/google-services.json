@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "135097105308",
+    "project_id": "pdfviewer-2542b",
+    "storage_bucket": "pdfviewer-2542b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135097105308:android:6a4dbc98dd17b9e3ca6659",
+        "android_client_info": {
+          "package_name": "com.example.pdf"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg01OmrurmmrQC8yqMGi2vd42u8_3OK8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
