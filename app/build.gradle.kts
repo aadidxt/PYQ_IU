@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.github.afreakyelf:Pdf-Viewer:v2.0.7")
+//    implementation ("com.airbnb.android:lottie:2.7.0")
 }

@@ -1,5 +1,6 @@
 package com.example.pdf
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -18,9 +19,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var spinnerSub : Spinner
     private lateinit var btnGet : Button
 
-
+    private fun isDarkModeOn(): Boolean {
+        val nightModeFlags = getResources().configuration.uiMode and
+                Configuration.UI_MODE_NIGHT_MASK
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        if (isDarkModeOn()) {
+            setTheme(R.style.AppTheme_Dark)
+        } else {
+            setTheme(R.style.AppTheme)
+        }
+
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
@@ -34,6 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         var subsBtechIV = arrayOf("Select Subjecct", "DAA", "OS", "SE & ES", "COA", "IS")
         var subBtechII = arrayOf("C","Chemistry","English","IIOT & BCME","Maths","Workshop")
+        var subsBtechVI = arrayOf("Computer Network","Internet Technology","Multimedia & PHP & Linux Administration","Compiler Design","Software Project Management","Software testing")
+        var subsBtechVIII = arrayOf("Mobile Computing","Cryptography and Network Security","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.",)
 //        var subsBba = arrayOf("A", "B", "C", "D", "E")
 //        var subsBca = arrayOf("Z", "X", "V", "N", "M")
 
@@ -64,16 +78,57 @@ class MainActivity : AppCompatActivity() {
                             var sub = spinnerSub.selectedItem.toString()
                             when(sub){
                                 "C"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20C.pdf?alt=media&token=99d7059d-a86c-47d5-bca0-232303c3ff3c",sub)
+
                                 "Chemistry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20CHEMISTRY%20.pdf?alt=media&token=d1f47bfe-7cd6-42f7-9cda-953b584ad82a",sub)
+
                                 "English"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20ENGLISH%20.pdf?alt=media&token=64795551-3591-4282-9259-2c92aececc14",sub)
+
                                 "IIOT & BCME"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20IIOT%20%26%20BCME.pdf?alt=media&token=4a4839f4-ed43-423a-a9a1-7edb324e4b01",sub)
+
                                 "Maths"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20MATHS.pdf?alt=media&token=374b4338-270d-4885-ba78-94bef44d814f",sub)
+
                                 "Workshop"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20WORKSHOP.pdf?alt=media&token=b9373f58-0f89-4f93-9eb9-a961c683c8f2",sub)
                             }
                         }
                     }
-                    "VI"-> Toast.makeText(this, "vi sem btech", Toast.LENGTH_SHORT).show()
-                    "VIII"-> Toast.makeText(this,"viii sem btech", Toast.LENGTH_SHORT).show()
+                    "VI"-> {
+                        Toast.makeText(this, "vi sem btech", Toast.LENGTH_SHORT).show()
+                        openAdapter(subsBtechVI)
+                        btnGet.setOnClickListener {
+                            var sub = spinnerSub.selectedItem.toString();
+                            when(sub){
+                                "Computer Network"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20Computer%20network%20.pdf?alt=media&token=a844daa1-6269-4a68-8784-782bab4812ea",sub)
+
+                                "Internet Technology"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20Internet%20technology%20.pdf?alt=media&token=7f76d02f-b6f1-4af9-aec5-1505ea9f97c2",sub)
+
+                                "Multimedia & PHP & Linux Administration"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20MM%20LA%20PHP.pdf?alt=media&token=d2deb078-d089-4e6e-9980-f8dd584fb09c",sub)
+
+                                "Compiler Design"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20compiler%20design%20.pdf?alt=media&token=71714a3c-f54f-429c-98c2-45ab2b986410",sub)
+
+                                "Software Project Management"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20software%20project%20management%20.pdf?alt=media&token=d16aae97-0a92-4f7d-98db-51357a3882d3",sub)
+
+                                "Software testing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20software%20testing%20.pdf?alt=media&token=399eadb1-62d6-432b-b331-045c2f2d1cac",sub)
+                            }
+                        }
+                    }
+                    "VIII"-> {
+//                        ","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.",)
+                        Toast.makeText(this, "viii sem btech", Toast.LENGTH_SHORT).show()
+                        openAdapter(subsBtechVIII)
+                        btnGet.setOnClickListener {
+                            var sub = spinnerSub.selectedItem.toString()
+                            when(sub){
+                                "Mobile Computing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20Mobile%20computing%20.pdf?alt=media&token=e154aeb6-40a7-4d0b-be56-beb4bfa17956",sub)
+
+                                "Cryptography and Network Security"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20cryptography%20and%20network%20security%20.pdf?alt=media&token=7b178104-eeec-44c6-8577-0e7b98657379",sub)
+
+                                "Software Quality Management"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20software%20quality%20management%20.pdf?alt=media&token=59434365-7313-4a7b-9576-71799720eee8",sub)
+
+                                "Big Data & .NET framework & Distributed DB & wireless Comm."->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20bigdata%20.net%20distributed%20db%20wireless%20comm.pdf?alt=media&token=366eff9a-3fd3-46d8-99f1-a608055a6032",sub)
+
+                            }
+                        }
+                    }
             }
             "BBA"->{
                 when(semester){

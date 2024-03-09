@@ -9,14 +9,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="443dp"
-        android:layout_height="980dp"
+        android:layout_width="658dp"
+        android:layout_height="1031dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_1" />
+        app:srcCompat="@drawable/img" />
 
     <TextView
         android:id="@+id/textView3"
@@ -27,15 +27,17 @@
         android:text="Select the Course and Semester\nHere you Goooo!!!"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:textColor="@color/md_theme_light_onBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerCourse"
-        android:layout_width="169dp"
-        android:layout_height="23dp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
         android:layout_marginTop="80dp"
+        android:textColor="@color/md_theme_light_onBackground"
         android:background="@drawable/spinner_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,10 +45,11 @@
 
     <Spinner
         android:id="@+id/spinnerSemester"
-        android:layout_width="169dp"
-        android:layout_height="23dp"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
         android:layout_marginTop="176dp"
         android:background="@drawable/spinner_shape"
+        android:textColor="@color/md_theme_light_onBackground"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCourse"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/spinnerCourse"
@@ -57,10 +60,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
+        android:textColor="@color/md_theme_light_onBackground"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSemester"
         app:layout_constraintVertical_bias="0.635" />
+
+    <TextView
+        android:id="@+id/AboutMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Me"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsubmit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

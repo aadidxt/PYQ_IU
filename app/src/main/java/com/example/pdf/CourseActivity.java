@@ -1,11 +1,15 @@
 package com.example.pdf;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,9 +22,22 @@ public class CourseActivity extends AppCompatActivity {
 
     Spinner spinnerCourse,spinnerSemester;
     Button btnSubmit;
+    TextView aboutME;
+
+    private boolean isDarkModeOn() {
+        int nightModeFlags = getResources().getConfiguration().uiMode &
+                Configuration.UI_MODE_NIGHT_MASK;
+        return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (isDarkModeOn()) {
+            setTheme(R.style.AppTheme);
+        } else {
+            setTheme(R.style.AppTheme_Dark);
+        }
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.course);
@@ -33,6 +50,7 @@ public class CourseActivity extends AppCompatActivity {
         spinnerCourse = findViewById(R.id.spinnerCourse);
         spinnerSemester = findViewById(R.id.spinnerSemester);
         btnSubmit = findViewById(R.id.btnsubmit);
+        aboutME = findViewById(R.id.AboutMe);
 
         String [] courses = {"Your Course","B.Tech CSE","B.Sc B.Ed","BBA","BCA"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,courses);
@@ -63,6 +81,18 @@ public class CourseActivity extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        aboutME.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 Dialog dialogBox = new Dialog(CourseActivity.this);
+                dialogBox.setContentView(R.layout.custom_dialog_box);
+                dialogBox.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialogBox.getWindow().setBackgroundDrawable(getDrawable(R.drawable.spinner_shape));
+                dialogBox.setCancelable(true);
+                dialogBox.show();
             }
         });
 
