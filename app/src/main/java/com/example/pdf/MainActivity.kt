@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         var subsBtechIV = arrayOf("Select Subjecct", "DAA", "OS", "SE & ES", "COA", "IS")
         var subBtechII = arrayOf("C","Chemistry","English","IIOT & BCME","Maths","Workshop")
-        var subsBba = arrayOf("A", "B", "C", "D", "E")
-        var subsBca = arrayOf("Z", "X", "V", "N", "M")
+//        var subsBba = arrayOf("A", "B", "C", "D", "E")
+//        var subsBca = arrayOf("Z", "X", "V", "N", "M")
 
 
         when(course){
@@ -45,15 +45,15 @@ class MainActivity : AppCompatActivity() {
                         btnGet.setOnClickListener {
                             var sub = spinnerSub.selectedItem.toString()
                             when(sub){
-                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769")
+                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769",sub)
 
-                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20OS.pdf?alt=media&token=e35a1357-253f-47c5-a507-8c7275d6cff1")
+                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20OS.pdf?alt=media&token=e35a1357-253f-47c5-a507-8c7275d6cff1",sub)
 
-                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20COA.pdf?alt=media&token=2b61e070-7e94-4c9d-a7dd-100963c28dd7")
+                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20COA.pdf?alt=media&token=2b61e070-7e94-4c9d-a7dd-100963c28dd7",sub)
 
-                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20SE%20%26%20ES.pdf?alt=media&token=7fb424a4-a250-4e52-abfa-46a26be166de")
+                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20SE%20%26%20ES.pdf?alt=media&token=7fb424a4-a250-4e52-abfa-46a26be166de",sub)
 
-                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20IS%20.pdf?alt=media&token=9c1d433e-5438-465b-9b60-48fe904c6aa9")
+                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20IS%20.pdf?alt=media&token=9c1d433e-5438-465b-9b60-48fe904c6aa9",sub)
                             }
                         }
 
@@ -63,12 +63,12 @@ class MainActivity : AppCompatActivity() {
                         btnGet.setOnClickListener {
                             var sub = spinnerSub.selectedItem.toString()
                             when(sub){
-                                "C"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20C.pdf?alt=media&token=99d7059d-a86c-47d5-bca0-232303c3ff3c")
-                                "Chemistry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20CHEMISTRY%20.pdf?alt=media&token=d1f47bfe-7cd6-42f7-9cda-953b584ad82a")
-                                "English"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20ENGLISH%20.pdf?alt=media&token=64795551-3591-4282-9259-2c92aececc14")
-                                "IIOT & BCME"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20IIOT%20%26%20BCME.pdf?alt=media&token=4a4839f4-ed43-423a-a9a1-7edb324e4b01")
-                                "Maths"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20MATHS.pdf?alt=media&token=374b4338-270d-4885-ba78-94bef44d814f")
-                                "Workshop"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20WORKSHOP.pdf?alt=media&token=b9373f58-0f89-4f93-9eb9-a961c683c8f2")
+                                "C"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20C.pdf?alt=media&token=99d7059d-a86c-47d5-bca0-232303c3ff3c",sub)
+                                "Chemistry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20CHEMISTRY%20.pdf?alt=media&token=d1f47bfe-7cd6-42f7-9cda-953b584ad82a",sub)
+                                "English"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20ENGLISH%20.pdf?alt=media&token=64795551-3591-4282-9259-2c92aececc14",sub)
+                                "IIOT & BCME"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20IIOT%20%26%20BCME.pdf?alt=media&token=4a4839f4-ed43-423a-a9a1-7edb324e4b01",sub)
+                                "Maths"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20MATHS.pdf?alt=media&token=374b4338-270d-4885-ba78-94bef44d814f",sub)
+                                "Workshop"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20WORKSHOP.pdf?alt=media&token=b9373f58-0f89-4f93-9eb9-a961c683c8f2",sub)
                             }
                         }
                     }
@@ -114,12 +114,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun openPdf1(url:String) {
+    private fun openPdf1(url:String,title:String) {
         startActivity(
             launchPdfFromUrl(
                 context = this,
                 pdfUrl = url,
-                pdfTitle = "PDF Title",
+                pdfTitle = title,
                 saveTo = saveTo.ASK_EVERYTIME,
                 enableDownload = false
             )
