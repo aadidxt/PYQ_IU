@@ -7,15 +7,15 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pdf.databinding.ActivityMainBinding
-import com.rajat.pdfviewer.PdfRendererView
+//import com.example.pdf.databinding.ActivityMainBinding
+//import com.rajat.pdfviewer.PdfRendererView
 import com.rajat.pdfviewer.PdfViewerActivity.Companion.launchPdfFromUrl
 import com.rajat.pdfviewer.util.saveTo
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var pdfView : PdfRendererView
+//    private lateinit var binding: ActivityMainBinding
+//    private lateinit var pdfView : PdfRendererView
     private lateinit var spinnerSub : Spinner
     private lateinit var btnGet : Button
 
@@ -44,12 +44,10 @@ class MainActivity : AppCompatActivity() {
         val course = intent.getStringExtra("course")
         val semester = intent.getStringExtra("semester")
 
-        var subsBtechIV = arrayOf("Select Subjecct", "DAA", "OS", "SE & ES", "COA", "IS")
-        var subBtechII = arrayOf("C","Chemistry","English","IIOT & BCME","Maths","Workshop")
-        var subsBtechVI = arrayOf("Computer Network","Internet Technology","Multimedia & PHP & Linux Administration","Compiler Design","Software Project Management","Software testing")
-        var subsBtechVIII = arrayOf("Mobile Computing","Cryptography and Network Security","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.",)
-//        var subsBba = arrayOf("A", "B", "C", "D", "E")
-//        var subsBca = arrayOf("Z", "X", "V", "N", "M")
+        val subsBtechIV = arrayOf("Select Subjecct", "DAA", "OS", "SE & ES", "COA", "IS")
+        val subsBtechII = arrayOf("C","Chemistry","English","IIOT & BCME","Maths","Workshop")
+        val subsBtechVI = arrayOf("Computer Network","Internet Technology","Multimedia & PHP & Linux Administration","Compiler Design","Software Project Management","Software testing")
+        val subsBtechVIII = arrayOf("Mobile Computing","Cryptography and Network Security","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.")
 
 
         when(course){
@@ -57,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                     "IV"-> {
                         openAdapter(subsBtechIV)
                         btnGet.setOnClickListener {
-                            var sub = spinnerSub.selectedItem.toString()
+                            val sub = spinnerSub.selectedItem.toString()
                             when(sub){
                                 "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769",sub)
 
@@ -73,9 +71,9 @@ class MainActivity : AppCompatActivity() {
 
                     }
                     "II"-> {
-                        openAdapter(subBtechII)
+                        openAdapter(subsBtechII)
                         btnGet.setOnClickListener {
-                            var sub = spinnerSub.selectedItem.toString()
+                            val sub = spinnerSub.selectedItem.toString()
                             when(sub){
                                 "C"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20C.pdf?alt=media&token=99d7059d-a86c-47d5-bca0-232303c3ff3c",sub)
 
@@ -95,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "vi sem btech", Toast.LENGTH_SHORT).show()
                         openAdapter(subsBtechVI)
                         btnGet.setOnClickListener {
-                            var sub = spinnerSub.selectedItem.toString();
+                            val sub = spinnerSub.selectedItem.toString()
                             when(sub){
                                 "Computer Network"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20Computer%20network%20.pdf?alt=media&token=a844daa1-6269-4a68-8784-782bab4812ea",sub)
 
@@ -112,11 +110,10 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     "VIII"-> {
-//                        ","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.",)
                         Toast.makeText(this, "viii sem btech", Toast.LENGTH_SHORT).show()
                         openAdapter(subsBtechVIII)
                         btnGet.setOnClickListener {
-                            var sub = spinnerSub.selectedItem.toString()
+                            val sub = spinnerSub.selectedItem.toString()
                             when(sub){
                                 "Mobile Computing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20Mobile%20computing%20.pdf?alt=media&token=e154aeb6-40a7-4d0b-be56-beb4bfa17956",sub)
 
@@ -162,7 +159,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun openAdapter(sub: kotlin.Array<String>) {
+    private fun openAdapter(sub: Array<String>) {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, sub)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSub.adapter = adapter
