@@ -20,6 +20,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class CourseActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
+
     Spinner spinnerCourse,spinnerSemester;
     Button btnSubmit;
     TextView aboutME;
@@ -46,6 +48,10 @@ public class CourseActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+       /// mAdView = findViewById(R.id.adView);
+        //AdRequest adRequest = new AdRequest.Builder().build();
+       // mAdView.loadAd(adRequest);
 
         spinnerCourse = findViewById(R.id.spinnerCourse);
         spinnerSemester = findViewById(R.id.spinnerSemester);

@@ -48,9 +48,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.analytics)
+   // implementation(libs.play.services.ads)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.github.afreakyelf:Pdf-Viewer:v2.0.7")
 //    implementation ("com.airbnb.android:lottie:2.7.0")
 }
+
+
+

@@ -49,27 +49,12 @@ class MainActivity : AppCompatActivity() {
         val subsBtechVI = arrayOf("Computer Network","Internet Technology","Multimedia & PHP & Linux Administration","Compiler Design","Software Project Management","Software testing")
         val subsBtechVIII = arrayOf("Mobile Computing","Cryptography and Network Security","Software Quality Management","Big Data & .NET framework & Distributed DB & wireless Comm.")
 
+        val subsBCAII = arrayOf("IIOT","Python","OS & Numerical and Statistical Approaches","DSA")
+        val subsBCAIV = arrayOf("Cloud Computing","SE & WEB DEV")
 
         when(course){
-            "B.Tech CSE"-> when(semester){
-                    "IV"-> {
-                        openAdapter(subsBtechIV)
-                        btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
-                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769",sub)
-
-                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20OS.pdf?alt=media&token=e35a1357-253f-47c5-a507-8c7275d6cff1",sub)
-
-                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20COA.pdf?alt=media&token=2b61e070-7e94-4c9d-a7dd-100963c28dd7",sub)
-
-                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20SE%20%26%20ES.pdf?alt=media&token=7fb424a4-a250-4e52-abfa-46a26be166de",sub)
-
-                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20IS%20.pdf?alt=media&token=9c1d433e-5438-465b-9b60-48fe904c6aa9",sub)
-                            }
-                        }
-
-                    }
+            "B.Tech CSE"-> {
+                when(semester){
                     "II"-> {
                         openAdapter(subsBtechII)
                         btnGet.setOnClickListener {
@@ -88,6 +73,24 @@ class MainActivity : AppCompatActivity() {
                                 "Workshop"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20WORKSHOP.pdf?alt=media&token=b9373f58-0f89-4f93-9eb9-a961c683c8f2",sub)
                             }
                         }
+                    }
+                    "IV"-> {
+                        openAdapter(subsBtechIV)
+                        btnGet.setOnClickListener {
+                            val sub = spinnerSub.selectedItem.toString()
+                            when(sub){
+                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769",sub)
+
+                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20OS.pdf?alt=media&token=e35a1357-253f-47c5-a507-8c7275d6cff1",sub)
+
+                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20COA.pdf?alt=media&token=2b61e070-7e94-4c9d-a7dd-100963c28dd7",sub)
+
+                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20SE%20%26%20ES.pdf?alt=media&token=7fb424a4-a250-4e52-abfa-46a26be166de",sub)
+
+                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20IS%20.pdf?alt=media&token=9c1d433e-5438-465b-9b60-48fe904c6aa9",sub)
+                            }
+                        }
+
                     }
                     "VI"-> {
                         Toast.makeText(this, "vi sem btech", Toast.LENGTH_SHORT).show()
@@ -126,6 +129,43 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }
+                }
+            }
+            "BCA"->{
+                when(semester) {
+                    "II"->{
+                        openAdapter(subsBCAII)
+                        btnGet.setOnClickListener {
+                            val sub = spinnerSub.selectedItem.toString()
+                            when(sub){
+                                "IIOT"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCSII%20IIOT.pdf?alt=media&token=3a67b2e8-9f92-446b-a95e-667fe992cdfd",sub)
+
+                                "Python"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCSII%20python%20.pdf?alt=media&token=d12d0799-6e36-4154-a443-a67c81169cf9",sub)
+
+                                "OS & Numerical and Statistical Approaches"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCAII%20OS%20NST.pdf?alt=media&token=c5a6eddb-dee9-4dc5-b6f3-876e510fdffe",sub)
+
+                                "DSA"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCAII%20DSA%20.pdf?alt=media&token=9cd599af-3541-4fb0-9cac-3afca5be6b1e",sub)
+
+                            }
+                        }
+                    }
+                    "IV"->{
+                        openAdapter(subsBCAIV)
+                        btnGet.setOnClickListener {
+                            val sub = spinnerSub.selectedItem.toString()
+                            when(sub){
+
+                                "Cloud Computing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCA%20IV%2FBCAIV%20Cloud%20computing%20.pdf?alt=media&token=b07f4d07-156e-4408-9437-76a0b6cf779e",sub)
+
+                                "SE & WEB DEV"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCA%20IV%2FBCAIV%20SE%20%26%20WEB%20DEV.pdf?alt=media&token=0f151a5f-c892-4917-8cfa-539b3e470e40",sub)
+                            }
+                        }
+                    }
+                    "VI"->{
+                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCAVI.pdf?alt=media&token=725c3d2f-4d00-43c6-98ee-a4b702969d99","BCA VI")
+
+                    }
+                }
             }
             "BBA"->{
                 when(semester){
@@ -139,19 +179,6 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "bba 6", Toast.LENGTH_SHORT).show()
                     }
 
-                }
-            }
-            "BCA"->{
-                when(semester) {
-                    "II"->{
-
-                    }
-                    "IV"->{
-
-                    }
-                    "VI"->{
-
-                    }
                 }
             }
         }
@@ -177,8 +204,6 @@ class MainActivity : AppCompatActivity() {
             )
         )
     }
-
-
 }
 
 
