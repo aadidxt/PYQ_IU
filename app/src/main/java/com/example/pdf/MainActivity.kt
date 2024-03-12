@@ -7,17 +7,19 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-//import com.example.pdf.databinding.ActivityMainBinding
-//import com.rajat.pdfviewer.PdfRendererView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.rajat.pdfviewer.PdfViewerActivity.Companion.launchPdfFromUrl
 import com.rajat.pdfviewer.util.saveTo
 
 
 class MainActivity : AppCompatActivity() {
-//    private lateinit var binding: ActivityMainBinding
-//    private lateinit var pdfView : PdfRendererView
     private lateinit var spinnerSub : Spinner
     private lateinit var btnGet : Button
+    private lateinit var adView : AdView
+    private lateinit var adView1 : AdView
+
 
     private fun isDarkModeOn(): Boolean {
         val nightModeFlags = getResources().configuration.uiMode and
@@ -39,6 +41,25 @@ class MainActivity : AppCompatActivity() {
 
         spinnerSub = findViewById<Spinner>(R.id.spinnerSub)
         btnGet = findViewById<Button>(R.id.btnGet)
+
+        MobileAds.initialize(this)
+        var adView = AdView(this)
+        adView.adUnitId = "ca-app-pub-9063143935807721/5300590182"
+
+        adView = findViewById<AdView>(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
+
+        MobileAds.initialize(this)
+        var adView1 = AdView(this)
+        adView1.adUnitId = "ca-app-pub-9063143935807721/2282463038"
+
+        adView1 = findViewById<AdView>(R.id.adView1)
+        val adRequest1 = AdRequest.Builder().build()
+        adView1.loadAd(adRequest1)
+
+
+
 
         val intent = getIntent()
         val course = intent.getStringExtra("course")

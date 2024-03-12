@@ -18,6 +18,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class CourseActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -26,12 +30,24 @@ public class CourseActivity extends AppCompatActivity {
     Button btnSubmit;
     TextView aboutME;
 
+    private AdView adView,adView1;
+
+
+
+
+
     private boolean isDarkModeOn() {
         int nightModeFlags = getResources().getConfiguration().uiMode &
                 Configuration.UI_MODE_NIGHT_MASK;
         return nightModeFlags == Configuration.UI_MODE_NIGHT_YES;
     }
 
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,16 +65,29 @@ public class CourseActivity extends AppCompatActivity {
             return insets;
         });
 
-       /// mAdView = findViewById(R.id.adView);
-        //AdRequest adRequest = new AdRequest.Builder().build();
-       // mAdView.loadAd(adRequest);
+        MobileAds.initialize(CourseActivity.this);
+        AdView adView = new AdView(this);
+        adView.setAdUnitId("ca-app-pub-9063143935807721/4878914205");
+
+        MobileAds.initialize(CourseActivity.this);
+        AdView adView1 = new AdView(this);
+        adView1.setAdUnitId("ca-app-pub-9063143935807721/8237497296");
+
+
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+        adView1 = findViewById(R.id.adView1);
+        AdRequest adRequest1 = new AdRequest.Builder().build();
+        adView1.loadAd(adRequest1);
 
         spinnerCourse = findViewById(R.id.spinnerCourse);
         spinnerSemester = findViewById(R.id.spinnerSemester);
         btnSubmit = findViewById(R.id.btnsubmit);
         aboutME = findViewById(R.id.AboutMe);
 
-        String [] courses = {"Your Course","B.Tech CSE","B.Sc B.Ed","BBA","BCA"};
+        String [] courses = {"Your Course","B.Tech CSE","BBA","BCA"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,courses);
         spinnerCourse.setAdapter(adapter1);
 
@@ -83,10 +112,6 @@ public class CourseActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
-
-
-
-
             }
         });
 
