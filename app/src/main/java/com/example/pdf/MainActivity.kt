@@ -184,6 +184,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     "VI"->{
                         openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCAVI.pdf?alt=media&token=725c3d2f-4d00-43c6-98ee-a4b702969d99","BCA VI")
+                        finish()
 
                     }
                 }
@@ -191,13 +192,19 @@ class MainActivity : AppCompatActivity() {
             "BBA"->{
                 when(semester){
                     "II"->{
-                        Toast.makeText(this, "bba 2", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
+                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBAII%20complete.pdf?alt=media&token=ef78d81c-c993-4280-a456-217d376a9dfa","BBA II sem")
+                        finish()
                     }
                     "IV"-> {
-                        Toast.makeText(this, "bba 4", Toast.LENGTH_SHORT).show()
+                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBA%20IV%20complete%20.pdf?alt=media&token=2ad90851-a65f-4ac3-888b-418459e17ade","BBA IV sem")
+                        Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
+                        finish()
                     }
                     "VI"->{
-                        Toast.makeText(this, "bba 6", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
+                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBA%20VI.pdf?alt=media&token=f6b4bf55-4f45-4282-a021-8d4f4b9ff941","BBA VI sem")
+                        finish()
                     }
 
                 }
