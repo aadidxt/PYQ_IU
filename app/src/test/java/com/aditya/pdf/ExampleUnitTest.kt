@@ -1,4 +1,4 @@
-package com.example.pdf
+package com.aditya.pdf
 
 import org.junit.Test
 

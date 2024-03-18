@@ -1,4 +1,4 @@
-package com.example.pdf
+package com.aditya.pdf
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -7,9 +7,6 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
 import com.rajat.pdfviewer.PdfViewerActivity.Companion.launchPdfFromUrl
 import com.rajat.pdfviewer.util.saveTo
 
@@ -17,9 +14,6 @@ import com.rajat.pdfviewer.util.saveTo
 class MainActivity : AppCompatActivity() {
     private lateinit var spinnerSub : Spinner
     private lateinit var btnGet : Button
-    private lateinit var adView : AdView
-    private lateinit var adView1 : AdView
-
 
     private fun isDarkModeOn(): Boolean {
         val nightModeFlags = getResources().configuration.uiMode and
@@ -42,23 +36,6 @@ class MainActivity : AppCompatActivity() {
         spinnerSub = findViewById<Spinner>(R.id.spinnerSub)
         btnGet = findViewById<Button>(R.id.btnGet)
 
-        MobileAds.initialize(this)
-        var adView = AdView(this)
-        adView.adUnitId = "ca-app-pub-9063143935807721/5300590182"
-
-        adView = findViewById<AdView>(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
-
-        MobileAds.initialize(this)
-        var adView1 = AdView(this)
-        adView1.adUnitId = "ca-app-pub-9063143935807721/2282463038"
-
-        adView1 = findViewById<AdView>(R.id.adView1)
-        val adRequest1 = AdRequest.Builder().build()
-        adView1.loadAd(adRequest1)
-
-
 
 
         val intent = getIntent()
@@ -73,14 +50,14 @@ class MainActivity : AppCompatActivity() {
         val subsBCAII = arrayOf("IIOT","Python","OS & Numerical and Statistical Approaches","DSA")
         val subsBCAIV = arrayOf("Cloud Computing","SE & WEB DEV")
 
+
         when(course){
             "B.Tech CSE"-> {
                 when(semester){
                     "II"-> {
                         openAdapter(subsBtechII)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
+                            when(val sub = spinnerSub.selectedItem.toString()){
                                 "C"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20C.pdf?alt=media&token=99d7059d-a86c-47d5-bca0-232303c3ff3c",sub)
 
                                 "Chemistry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%202nd%20sem%2FIIsem%20CHEMISTRY%20.pdf?alt=media&token=d1f47bfe-7cd6-42f7-9cda-953b584ad82a",sub)
@@ -98,17 +75,16 @@ class MainActivity : AppCompatActivity() {
                     "IV"-> {
                         openAdapter(subsBtechIV)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
-                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20DAA.pdf?alt=media&token=3614ec67-3654-4d37-9920-e4f7d684e769",sub)
+                            when(val sub = spinnerSub.selectedItem.toString()){
+                                "DAA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20IV%20sem%2FBTECHIV%20DAA.pdf?alt=media&token=928ab85e-3598-444c-a8ab-00a77dd762cc",sub)
 
-                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20OS.pdf?alt=media&token=e35a1357-253f-47c5-a507-8c7275d6cff1",sub)
+                                "OS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20IV%20sem%2FIVsem%20OS.pdf?alt=media&token=167cc3da-1d05-4445-a709-d22bea4d45f4",sub)
 
-                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20COA.pdf?alt=media&token=2b61e070-7e94-4c9d-a7dd-100963c28dd7",sub)
+                                "COA" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20IV%20sem%2FBTECHIV%20COA.pdf?alt=media&token=560150e8-82b9-49e6-9cff-03f83f78f018",sub)
 
-                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20SE%20%26%20ES.pdf?alt=media&token=7fb424a4-a250-4e52-abfa-46a26be166de",sub)
+                                "SE & ES" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20IV%20sem%2FIVsem%20SE%20%26%20ES.pdf?alt=media&token=8f180db5-41b5-41c5-8375-001df50d7fc6",sub)
 
-                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/IVsem%20IS%20.pdf?alt=media&token=9c1d433e-5438-465b-9b60-48fe904c6aa9",sub)
+                                "IS" -> openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20IV%20sem%2FBTECHIV%20INDUSTRIAL%20SOCIOLOGY%20.pdf?alt=media&token=0fbe6842-65b7-4857-939b-932adc962b57",sub)
                             }
                         }
 
@@ -117,8 +93,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "vi sem btech", Toast.LENGTH_SHORT).show()
                         openAdapter(subsBtechVI)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
+                            when(val sub = spinnerSub.selectedItem.toString()){
                                 "Computer Network"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20Computer%20network%20.pdf?alt=media&token=a844daa1-6269-4a68-8784-782bab4812ea",sub)
 
                                 "Internet Technology"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/Btech%20VIsem%2FVIsem%20Internet%20technology%20.pdf?alt=media&token=7f76d02f-b6f1-4af9-aec5-1505ea9f97c2",sub)
@@ -137,8 +112,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, "viii sem btech", Toast.LENGTH_SHORT).show()
                         openAdapter(subsBtechVIII)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
+                            when(val sub = spinnerSub.selectedItem.toString()){
                                 "Mobile Computing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20Mobile%20computing%20.pdf?alt=media&token=e154aeb6-40a7-4d0b-be56-beb4bfa17956",sub)
 
                                 "Cryptography and Network Security"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/B.tech%20VIII%20SEM%2FVIIIsem%20cryptography%20and%20network%20security%20.pdf?alt=media&token=7b178104-eeec-44c6-8577-0e7b98657379",sub)
@@ -157,8 +131,7 @@ class MainActivity : AppCompatActivity() {
                     "II"->{
                         openAdapter(subsBCAII)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
+                            when(val sub = spinnerSub.selectedItem.toString()){
                                 "IIOT"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCSII%20IIOT.pdf?alt=media&token=3a67b2e8-9f92-446b-a95e-667fe992cdfd",sub)
 
                                 "Python"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCSII%20python%20.pdf?alt=media&token=d12d0799-6e36-4154-a443-a67c81169cf9",sub)
@@ -173,8 +146,7 @@ class MainActivity : AppCompatActivity() {
                     "IV"->{
                         openAdapter(subsBCAIV)
                         btnGet.setOnClickListener {
-                            val sub = spinnerSub.selectedItem.toString()
-                            when(sub){
+                            when(val sub = spinnerSub.selectedItem.toString()){
 
                                 "Cloud Computing"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BCA%20II%20SEM%2FBCA%20IV%2FBCAIV%20Cloud%20computing%20.pdf?alt=media&token=b07f4d07-156e-4408-9437-76a0b6cf779e",sub)
 
@@ -194,21 +166,43 @@ class MainActivity : AppCompatActivity() {
                     "II"->{
                         Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
                         openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBAII%20complete.pdf?alt=media&token=ef78d81c-c993-4280-a456-217d376a9dfa","BBA II sem")
-                        finish()
+
                     }
                     "IV"-> {
-                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBA%20IV%20complete%20.pdf?alt=media&token=2ad90851-a65f-4ac3-888b-418459e17ade","BBA IV sem")
                         Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
-                        finish()
+                        openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBA%20IV%20complete%20.pdf?alt=media&token=2ad90851-a65f-4ac3-888b-418459e17ade","BBA IV sem")
+
                     }
                     "VI"->{
                         Toast.makeText(this,"opening BBA $semester semester",Toast.LENGTH_SHORT).show()
                         openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BBA%2FBBA%20VI.pdf?alt=media&token=f6b4bf55-4f45-4282-a021-8d4f4b9ff941","BBA VI sem")
-                        finish()
+
                     }
 
                 }
             }
+            "BSc BEd PCM"->{
+                when(semester){
+                    "IV"->{
+                        val subBScBEdPCM = arrayOf("Basic of Organic Chemistry","Algebra and Trigonometry","Solid State and modern Physics","Classroom Management & Learning Teaching Assessment")
+                        openAdapter(subBScBEdPCM)
+                        btnGet.setOnClickListener {
+                            when(val sub = spinnerSub.selectedItem.toString()){
+                                "Basic of Organic Chemistry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BSc%20BEd%20PCM%20IV%20SEM%2FEDUIV%20BASIC%20OF%20ORGANIC%20CHEMISTRY%20.pdf?alt=media&token=231fcb07-b940-4f8c-8072-d990d4ec7872",sub)
+
+                                "Algebra and Trigonometry"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BSc%20BEd%20PCM%20IV%20SEM%2FEDUIV%20ALGEBRA%20AND%20TRIGONOMETRY%20.pdf?alt=media&token=fcfd9aa1-5491-4ed2-b83a-c1f4f8ca7892",sub)
+
+                                "Solid State and modern Physics"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BSc%20BEd%20PCM%20IV%20SEM%2FEDUIV%20SOLID%20STATE%20AND%20MODERN%20PHYSICS%20.pdf?alt=media&token=83ce77d9-64ad-475b-a4ea-de65ea9c193c",sub)
+
+                                "Classroom Management & Learning Teaching Assessment"->openPdf1("https://firebasestorage.googleapis.com/v0/b/sample1-15839.appspot.com/o/BSc%20BEd%20PCM%20IV%20SEM%2FEDUIV%20TEACHING%20LEARNING%20ASSISSMENT%20%26%20CLASSROOM%20MANAGEMENT%20.pdf?alt=media&token=0a6674b3-d1ba-4835-9f70-2a2526fc183d",sub)
+
+                            }
+                        }
+                    }
+                    else->Toast.makeText(this,"coming soon",Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
 
     }
@@ -222,6 +216,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun openPdf1(url:String,title:String) {
+        Toast.makeText(this,"Wait while the pdf is being loaded",Toast.LENGTH_SHORT).show()
         startActivity(
             launchPdfFromUrl(
                 context = this,
@@ -231,6 +226,11 @@ class MainActivity : AppCompatActivity() {
                 enableDownload = false
             )
         )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        finish()
     }
 }
 

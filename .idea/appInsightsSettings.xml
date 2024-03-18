@@ -8,7 +8,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.example.pdf" />
+                  <option name="appId" value="com.aditya.pdf" />
                   <option name="mobileSdkAppId" value="1:135097105308:android:6a4dbc98dd17b9e3ca6659" />
                   <option name="projectId" value="pdfviewer-2542b" />
                   <option name="projectNumber" value="135097105308" />

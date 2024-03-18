@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.pdf"
+    namespace = "com.aditya.pdf"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.pdf"
+        applicationId = "com.aditya.pdf"
         minSdk = 21
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

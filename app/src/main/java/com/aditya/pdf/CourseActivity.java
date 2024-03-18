@@ -1,4 +1,4 @@
-package com.example.pdf;
+package com.aditya.pdf;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -87,7 +86,7 @@ public class CourseActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnsubmit);
         aboutME = findViewById(R.id.AboutMe);
 
-        String [] courses = {"Your Course","B.Tech CSE","BBA","BCA"};
+        String [] courses = {"Your Course","B.Tech CSE","BSc BEd PCM","BBA","BCA"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,courses);
         spinnerCourse.setAdapter(adapter1);
 
